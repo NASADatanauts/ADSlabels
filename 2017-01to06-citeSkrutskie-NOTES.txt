@@ -1,0 +1,330 @@
+Using ADS Bumblebee for 2mass
+
+9/26/2017
+
+pubdate:[2017 TO 2017-06] citations(bibcode:2006AJ....131.1163S) 
+
+restricting to astronomy and refereed
+
+316 results
+
+bumblebee is just unworkable - it keeps freezing. exporting 316 to ads classic.
+NB: notes may also flag other IRSA resources
+
+
+@ARTICLE{2017MNRAS.470L..97G, - YES used to fit seds
+@ARTICLE{2017SerAJ.194...59A, - YES used to establish coord sys
+@ARTICLE{2017Sci...356.1046S, - YES coord reference
+@ARTICLE{2017Natur.546..514G, - YES used in SED
+@ARTICLE{2017NatAs...1E.116G, - YES bootstrap calibration
+@ARTICLE{2017MNRAS.468.2114P,   - *NO* did not use 2mass
+@ARTICLE{2017MNRAS.468.2081G, - YES comparing position to IR data from 2mass, WISE, AKARI and lack of other sources near that position in those catalogs; also color indices
+@ARTICLE{2017MNRAS.468.1092C, - YES used to establish coord sys
+@ARTICLE{2017MNRAS.468..857K,   - *NO* did not use 2mass
+@ARTICLE{2017MNRAS.468..662R, - YES used to establish coord sys
+@ARTICLE{2017MNRAS.468..492P, - YES used to set center of galaxy (NGC55)
+@ARTICLE{2017MNRAS.468..261Z,   - NO because 2mass only appears in the name. Skrutskie and 2mass appear in acknowledgements for using data, but it's not clear to me how
+@ARTICLE{2017MNRAS.468..196T, - YES method looks for things in WISE and FIRST but not SDSS or 2MASS.
+@ARTICLE{2017MNRAS.468..180R, - YES small part of data used.
+@ARTICLE{2017MNRAS.468..109W, - YES coord reference
+@ARTICLE{2017MNRAS.467.5001C, - YES limiting companion brightness
+@ARTICLE{2017MNRAS.467.4914V, - YES making LSS maps from 2mass and wise
+@ARTICLE{2017MNRAS.467.4514C, - YES part of sample selction
+@ARTICLE{2017MNRAS.467.4264G, - YES part of sample selction
+@ARTICLE{2017MNRAS.467.4015H, - YES bootstrap coordinates and calibration
+@ARTICLE{2017MNRAS.467.2517S, - YES coord reference, surface density
+@ARTICLE{2017JKAS...50...79K, - YES part of data used.
+@ARTICLE{2017JKAS...50...71C, - YES bootstrap calibration
+@ARTICLE{2017JKAS...50...51L,   - NO paper in biblio but never cited, no instances of 2mass in text.
+@ARTICLE{2017ApJS..230...23V, - YES part of data used, bootstrap calibration
+@ARTICLE{2017ApJ...842..123F, - YES part of data used.
+@ARTICLE{2017ApJ...842...65Z, - YES bootstrap calibration, some data
+@ARTICLE{2017ApJ...842...24J, - YES target selection
+@ARTICLE{2017ApJ...841..108M, - YES target selection, some data
+@ARTICLE{2017ApJ...841...81H, - YES part of data used.
+@ARTICLE{2017ApJ...841...73K, - YES part of data used.
+@ARTICLE{2017Ap.....60..300K, - YES part of data used.
+@ARTICLE{2017AN....338..635R, - YES part of data used. also Skrutskie in reference list but not referenced
+@ARTICLE{2017AN....338..629C, - YES part of data used.
+@ARTICLE{2017AJ....153..276Z, - YES coord reference
+@ARTICLE{2017AJ....153..267M, - YES part of data used.
+@ARTICLE{2017AJ....153..263M, - YES part of data used.
+@ARTICLE{2017AJ....153..259O, - YES part of data used. Bootstrapping SDSS bands(!)
+@ARTICLE{2017AJ....153..256R, - YES part of data used.
+@ARTICLE{2017AJ....153..252L, - YES part of data used.
+@ARTICLE{2017AcA....67..131O, - YES part of data used.
+@ARTICLE{2017A&A...602A.124R, - YES coord reference
+@ARTICLE{2017A&A...602A..95L, - YES part of data used.
+@ARTICLE{2017A&A...602A..82D, - YES bootstrap calibration, also used Spitzer
+@ARTICLE{2017A&A...602A..67A, - YES part of data used.
+@ARTICLE{2017A&A...602A..31C, - YES part of data used.
+@ARTICLE{2017A&A...602A..30H, - YES part of data used.
+@ARTICLE{2017PASP..129e8006B,   - ??? this is the MONTAGE paper; mentions that airglow in 2mass not well-corrected. not sure if this counts or not
+@ARTICLE{2017PASP..129e8004K,   - NO does not use data
+@ARTICLE{2017MNRAS.467.3712O, - YES bootstrap calibration
+@ARTICLE{2017MNRAS.467.2766G,   - NO paper in biblio but never cited, no instances of 2mass in text.
+@ARTICLE{2017MNRAS.467.2160R, - YES part of data used.
+@ARTICLE{2017MNRAS.467.1890X, - YES part of data used to calculate proper motions.
+@ARTICLE{2017MNRAS.467.1714T, - YES part of data used.
+@ARTICLE{2017MNRAS.467.1433R, - YES part of data used.
+@ARTICLE{2017MNRAS.467.1414M, - YES part of data used.
+@ARTICLE{2017MNRAS.467.1126D, - YES used position.
+@ARTICLE{2017MNRAS.467.1112S, - YES part of data used.
+@ARTICLE{2017MNRAS.467.1098H, - YES part of data used.
+@ARTICLE{2017MNRAS.467.1083L, - YES part of data used.
+@ARTICLE{2017MNRAS.467..812M, - YES part of data used to make SEDs.
+@ARTICLE{2017MNRAS.467..633J,   - NO not really. uses someone else's results that depended on 2mass
+@ARTICLE{2017MNRAS.467..437G, - YES small part of data used.
+@ARTICLE{2017ARep...61..406S, - YES part of data used.
+@ARTICLE{2017ApJS..230....3S, - YES part of data used, also bootstrap coordinates
+@ARTICLE{2017ApJ...841L...1G, - YES part of data used.
+@ARTICLE{2017ApJ...841...40H, - YES part of data used.
+@ARTICLE{2017ApJ...841...11T, - YES coord reference, also used data
+@ARTICLE{2017ApJ...841....6H, - YES part of data used.
+@ARTICLE{2017ApJ...840..111T, - YES part of data used.
+@ARTICLE{2017ApJ...840..109B, - YES part of data used, also Spitzer
+@ARTICLE{2017ApJ...840...69F, - YES part of data used.
+@ARTICLE{2017ApJ...840...67L, - YES part of data used to make SEDs.
+@ARTICLE{2017ApJ...840...66G, - YES part of data used.
+@ARTICLE{2017ApJ...840...21T, - YES part of data used to make SEDs.
+@ARTICLE{2017AN....338..489V, - YES part of data used.
+@ARTICLE{2017AN....338..464G, - YES part of data used.
+@ARTICLE{2017AJ....153..215P, - YES part of data used.
+@ARTICLE{2017AJ....153..211Z, - YES part of data used.
+@ARTICLE{2017A&A...601A.137M, - YES part of data used.
+@ARTICLE{2017A&A...601A.117G, - YES part of data used. Also used Spitzer
+@ARTICLE{2017A&A...601A..97S, - YES part of data used. target selection
+@ARTICLE{2017A&A...601A..72I, - YES part of data used.
+@ARTICLE{2017A&A...601A..67C, - YES part of data used.
+@ARTICLE{2017A&A...601A..44G, - YES part of data used.
+@ARTICLE{2017A&A...601A..32S, - YES part of data used to make SED.
+@ARTICLE{2017A&A...601A..25C, - YES part of data used. WISE too
+@ARTICLE{2017RAA....17...41G, - YES part of data used.
+@ARTICLE{2017PASP..129d4501S, - YES part of data used.
+@ARTICLE{2017PASP..129d4102D, - YES part of data used. also WISE, Herschel, Planck
+@ARTICLE{2017PASJ...69...29N, - YES part of data used.
+@ARTICLE{2017NewA...52...55B, - YES data used based on abstract (can't get to article)
+@ARTICLE{2017Natur.544..333D, - YES part of data used.
+@ARTICLE{2017MNRAS.466.4370S, - YES small part of data used.
+@ARTICLE{2017MNRAS.466.3636M, - YES part of data used.
+@ARTICLE{2017MNRAS.466.3519R, - YES part of data used.
+@ARTICLE{2017MNRAS.466.3184M, - YES part of data used. WISE too
+@ARTICLE{2017MNRAS.466.3088W, - YES small part of data used.
+@ARTICLE{2017MNRAS.466.3077M, - YES part of data used.
+@ARTICLE{2017MNRAS.466.3060P, - YES part of data used.
+@ARTICLE{2017MNRAS.466.2983G, - YES part of data used. also WISE, Spitzer
+@ARTICLE{2017MNRAS.466.2212A, - YES part of data used - NB spelled wrong, 2-MASS
+@ARTICLE{2017MNRAS.466.2024T, - YES small part of data used.
+@ARTICLE{2017MNRAS.466.1944M, - YES small part of data used. nondets 2MASS, WISE
+@ARTICLE{2017MNRAS.466.1857G, - YES part of data used.
+@ARTICLE{2017MNRAS.466.1399H, - YES small part of data used.
+@ARTICLE{2017MNRAS.466.1382L, - YES small part of data used.
+@ARTICLE{2017MNRAS.466.1127K, - YES part of data used.
+@ARTICLE{2017MNRAS.466.1061P, - YES part of data used.
+@ARTICLE{2017MNRAS.466.1010S, - YES part of data used. positions
+@ARTICLE{2017MNRAS.466..613M,   - NO not really, cites someone else who used 2mass data 
+@ARTICLE{2017MNRAS.466..392P, - YES part of data used.
+@ARTICLE{2017IBVS.6205....1I, - YES part of data used.
+@ARTICLE{2017AstBu..72..141S, - YES part of data used.
+@ARTICLE{2017ApJS..229...38C, - YES part of data used.
+@ARTICLE{2017ApJS..229...32S, - YES part of data used, astrometry. also Spitzer
+@ARTICLE{2017ApJS..229...28G, - YES part of data used, also Spitzer
+@ARTICLE{2017ApJS..229...25C, - YES part of data used, also Spitzer, Herschel
+@ARTICLE{2017ApJ...839..108S, - YES part of data used, also Spitzer
+@ARTICLE{2017ApJ...839..106S, - YES part of data used.
+@ARTICLE{2017ApJ...839..101Z, - YES part of data used
+@ARTICLE{2017ApJ...839...96M, - YES part of data used, calibration
+@ARTICLE{2017ApJ...839...92R, - YES part of data used, also Spitzer, WISE
+@ARTICLE{2017ApJ...839...88K,   - NO, but Spitzer
+@ARTICLE{2017ApJ...839...71F, - YES part of data used, calibration
+@ARTICLE{2017ApJ...839...48V, - YES part of data used to make SED.
+@ARTICLE{2017ApJ...839...23B, - YES part of data used to make SEDs
+@ARTICLE{2017ApJ...839....7M, - YES part of data used, astrometry. 
+@ARTICLE{2017ApJ...838..150K, - YES part of data used.
+@ARTICLE{2017ApJ...838..110G, - YES part of data used, astrometry. 
+@ARTICLE{2017ApJ...838..105L,   - NO not really, cites someone else who used 2mass data 
+@ARTICLE{2017ApJ...838..102D, - YES part of data used.
+@ARTICLE{2017AJ....153..196S, - YES part of data used, with WISE
+@ARTICLE{2017AJ....153..188F, - YES part of data used.
+@ARTICLE{2017AJ....153..178S, - YES part of data used.
+@ARTICLE{2017AJ....153..177P,   - NO only shows up as a synonym of the star
+@ARTICLE{2017AJ....153..166Z, - YES part of data used.
+@ARTICLE{2017AJ....153..165T, - YES part of data used, with WISE
+@ARTICLE{2017AJ....153..156C, - YES part of data used.
+@ARTICLE{2017AJ....153..152S, - YES part of data used, with WISE
+@ARTICLE{2017A&A...600L...4A, - YES part of data used
+@ARTICLE{2017A&A...600A.118C, - YES part of data used, astrometry. 
+@ARTICLE{2017A&A...600A..99M, - YES part of data used, with Spitzer, Herschel
+@ARTICLE{2017A&A...600A..93F, - YES part of data used, with Spitzer, Herschel
+@ARTICLE{2017A&A...600A..55I, - YES small part of data used
+@ARTICLE{2017A&A...600A..50G, - YES part of data used
+@ARTICLE{2017A&A...600A...8D, - YES part of data used, astrometry. 
+@ARTICLE{2017MNRAS.465.4753R, - YES part of data used, with Spitzer, Herschel
+@ARTICLE{2017MNRAS.465.4723K, - YES part of data used
+@ARTICLE{2017MNRAS.465.4602L, - YES part of data used
+@ARTICLE{2017MNRAS.465.4482Y, - YES part of data used, make SEDs
+@ARTICLE{2017MNRAS.465.4468R, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.465.4035D, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.465.3203M, - YES part of data used, target selection
+@ARTICLE{2017MNRAS.465.3125E, - YES part of data used
+@ARTICLE{2017MNRAS.465.3039C, - YES part of data used, with Spitzer, WISE, Akari, Herschel (plus callout to IRSA specifically)
+@ARTICLE{2017MNRAS.465.3011C, - YES part of data used, calibration, with Spitzer
+@ARTICLE{2017MNRAS.465.2916S, - YES part of data used
+@ARTICLE{2017MNRAS.465.2849T, - YES small part of data used
+@ARTICLE{2017MNRAS.465.2820D, - YES small part of data used, astrometry
+@ARTICLE{2017ApJ...838L...3L, - YES part of data used, make SEDs
+@ARTICLE{2017ApJ...838...73M,   - not really; target selection done elsewhere, and 2mass appears in name
+@ARTICLE{2017ApJ...838...61P, - YES part of data used
+@ARTICLE{2017ApJ...838...49X, - YES part of data used
+@ARTICLE{2017ApJ...838...41J, - YES part of data used, WISE too
+@ARTICLE{2017ApJ...838...36S,   - NO not really, cites someone else who used 2mass data 
+@ARTICLE{2017ApJ...838...22G, - YES part of data used
+@ARTICLE{2017ApJ...838...20M, - YES part of data used
+@ARTICLE{2017ApJ...837L..22S, - YES part of data used, calibration and astrometry
+@ARTICLE{2017ApJ...837..176Y, - YES small part of data used
+@ARTICLE{2017ApJ...837..161S, - YES part of data used, also Herschel, Planck
+@ARTICLE{2017ApJ...837..130V, - YES small part of data used
+@ARTICLE{2017ApJ...837..118L, - YES part of data used, astrometry
+@ARTICLE{2017ApJ...837...95B, - YES part of data used, also WISE
+@ARTICLE{2017ApJ...837...51H, - YES part of data used
+@ARTICLE{2017ApJ...837...48C, - YES part of data used
+@ARTICLE{2017ApJ...837...44D, - YES part of data used, also Herschel, Spitzer, WISE
+@ARTICLE{2017ApJ...837...14A, - YES part of data used
+@ARTICLE{2017ApJ...837....7G, - YES part of data used
+@ARTICLE{2017ApJ...837....3S, - YES part of data used
+@ARTICLE{2017Ap.....60...70G, - YES part of data used, also IRAS, Spitzer, WISE
+@ARTICLE{2017AJ....153..126K, - YES part of data used, calibration and astrometry
+@ARTICLE{2017AJ....153..115S, - YES part of data used, also Spitzer
+@ARTICLE{2017AJ....153..106U, - YES part of data used
+@ARTICLE{2017AJ....153..101S, - YES part of data used
+@ARTICLE{2017AJ....153...97O, - YES part of data used, also WISE
+@ARTICLE{2017AJ....153...96M, - YES part of data used, also Spitzer
+@ARTICLE{2017AJ....153...95R, - YES part of data used
+@ARTICLE{2017AJ....153...92T, - YES part of data used, also WISE
+@ARTICLE{2017A&A...599A..97H, - YES part of data used
+@ARTICLE{2017A&A...599A..78P, - YES part of data used, also WISE
+@ARTICLE{2017A&A...599A..70J, - YES part of data used
+@ARTICLE{2017A&A...599A..50A, - YES part of data used, astrometry
+@ARTICLE{2017A&A...599A..37D, - YES part of data used, astrometry, photoemtry
+@ARTICLE{2017SciIn..13a..58P,   - IN RUSSIAN, CAN'T TELL but it does cite 2mass..
+@ARTICLE{2017RAA....17...20I, - YES part of data used despite questionable citation
+@ARTICLE{2017PhRvD..95d2005M, - YES small part of data used, astrometry
+@ARTICLE{2017PASJ...69....9Y, - YES part of data used, also WISE
+@ARTICLE{2017MNRAS.465.2120C, - YES part of data used
+@ARTICLE{2017MNRAS.465.1889G, - YES part of data used
+@ARTICLE{2017MNRAS.465.1665K, - YES part of data used
+@ARTICLE{2017MNRAS.465.1621P, - YES part of data used
+@ARTICLE{2017MNRAS.465.1454H, - YES part of data used, astrometry
+@ARTICLE{2017MNRAS.465.1401S, - YES part of data used - I think he's using 2mass in there. Herschel too
+@ARTICLE{2017MNRAS.465.1123S, - YES part of data used, target selection
+@ARTICLE{2017MNRAS.465..784M, - YES part of data used
+@ARTICLE{2017MNRAS.465..760B, - YES part of data used, also Spitzer and WISE
+@ARTICLE{2017MNRAS.465..501S, - YES part of data used, also Spitzer
+@ARTICLE{2017MNRAS.465..472K, - YES part of data used, also WISE, MSX, Spitzer
+@ARTICLE{2017MNRAS.465..293K, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.465..173P, - YES part of data used
+@ARTICLE{2017MNRAS.465...19T, - YES part of data used, astrometry
+@ARTICLE{2017MNRAS.464.4721F, - YES part of data used
+@ARTICLE{2017MNRAS.464.4624S, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.464.4360M, - YES part of data used
+@ARTICLE{2017MNRAS.464.4331N, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.464.4255P,   - NO not really. Herschel though
+@ARTICLE{2017MNRAS.464.3871S, - YES part of data used, astrometry
+@ARTICLE{2017JKAS...50....7S, - YES part of data used, also Herschel
+@ARTICLE{2017ApJS..228...18G, - YES part of data used
+@ARTICLE{2017ApJS..228...14C,   - NO just cites it
+@ARTICLE{2017ApJ...836..218L, - YES part of data used
+@ARTICLE{2017ApJ...836..200G, - YES part of data used
+@ARTICLE{2017ApJ...836..199H, - YES part of data used
+@ARTICLE{2017ApJ...836..180L, - YES part of data used, also WISE, IRAS, Spitzer (cites IRSA)
+@ARTICLE{2017ApJ...836..168J, - YES part of data used, target selection
+@ARTICLE{2017ApJ...836..158H, - YES part of data used, calibration
+@ARTICLE{2017ApJ...836...65M, - YES part of data used, also MSX, Spitzer, WISE
+@ARTICLE{2017ApJ...836...34M, - YES part of data used, also Spitzer
+@ARTICLE{2017ApJ...836...19M, - YES part of data used
+@ARTICLE{2017ApJ...835..285Z, - YES part of data used
+@ARTICLE{2017ApJ...835..257L, - YES part of data used, also WISE, Spitzer, Herschel
+@ARTICLE{2017ApJ...835..223S, - YES part of data used
+@ARTICLE{2017ApJ...835..218P, - YES part of data used
+@ARTICLE{2017ApJ...835..208W,   - NO just cites it
+@ARTICLE{2017ApJ...835..184G, - YES part of data used, calibration
+@ARTICLE{2017ApJ...835..163S, - YES part of data used
+@ARTICLE{2017AJ....153...84K, - YES part of data used
+@ARTICLE{2017AJ....153...75K, - YES part of data used
+@ARTICLE{2017AJ....153...71F, - YES part of data used
+@ARTICLE{2017AJ....153...66Z, - YES small part of data used
+@ARTICLE{2017AJ....153...65M, - YES part of data used, also WISE
+@ARTICLE{2017AJ....153...64M, - YES part of data used
+@ARTICLE{2017AJ....153...53L,   - NO just cites it
+@ARTICLE{2017AJ....153...51W, - YES part of data used, SEDs
+@ARTICLE{2017A&A...598L...4D, - YES part of data used
+@ARTICLE{2017A&A...598A.136M, - YES part of data used, and Spitzer
+@ARTICLE{2017A&A...598A.124K, - YES part of data used, and WISE
+@ARTICLE{2017A&A...598A.122B, - YES part of data used, also Herschel, WISE 
+@ARTICLE{2017A&A...598A.119F, - YES part of data used, astrometry
+@ARTICLE{2017A&A...598A..92L, - YES part of data used
+@ARTICLE{2017A&A...598A..82G, - YES part of data used
+@ARTICLE{2017A&A...598A..69H, - YES part of data used
+@ARTICLE{2017A&A...598A..54H, - YES part of data used
+@ARTICLE{2017A&A...598A...1M, - YES part of data used, also Spitzer, Akari
+@ARTICLE{2017RAA....17....4D, - YES part of data used, but i can't see whole paper. abstract say JHK so prob 2mss
+@ARTICLE{2017PASP..129a4002M, - YES part of data used
+@ARTICLE{2017NewA...50..104G, - YES part of data used
+@ARTICLE{2017NewA...50...73B, - YES small part of data used
+@ARTICLE{2017MNRAS.464L..46S, - YES small part of data used
+@ARTICLE{2017MNRAS.464.3657X, - YES part of data used
+@ARTICLE{2017MNRAS.464.3256L, - YES part of data used
+@ARTICLE{2017MNRAS.464.3040Z, - YES part of data used
+@ARTICLE{2017MNRAS.464.2910S, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.464.2730V, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.464.2708S, - YES part of data used
+@ARTICLE{2017MNRAS.464.2687H, - YES small part of data used. has 2m ackn. uses Spitzer data for sure.
+@ARTICLE{2017MNRAS.464.2672H, - YES part of data used
+@ARTICLE{2017MNRAS.464.2565L, - YES part of data used, also WISE, Spitzer
+@ARTICLE{2017MNRAS.464.2545C,   - NO just cites it
+@ARTICLE{2017MNRAS.464.2517H, - YES part of data used
+@ARTICLE{2017MNRAS.464.1874C, - YES part of data used, calibration
+@ARTICLE{2017MNRAS.464.1738D, - YES part of data used
+@ARTICLE{2017MNRAS.464.1456J, - YES part of data used
+@ARTICLE{2017MNRAS.464.1294Z, - YES part of data used, also WISE
+@ARTICLE{2017MNRAS.464.1029N, - YES part of data used, also WISE
+@ARTICLE{2017MNRAS.464..850G, - YES part of data used
+@ARTICLE{2017MNRAS.464..356V, - YES part of data used
+@ARTICLE{2017MNRAS.464..194F, - YES part of data used
+@ARTICLE{2017MNRAS.464..170K, - YES part of data used, astrometry
+@ARTICLE{2017AstBu..72....1M, - YES part of data used
+@ARTICLE{2017ApJS..228....7N,   - NO just cites it (does use spitzer tho)
+@ARTICLE{2017ApJ...835...93M, - YES part of data used, calibration
+@ARTICLE{2017ApJ...835...83S, - YES part of data used
+@ARTICLE{2017ApJ...835...81B, - YES part of data used
+@ARTICLE{2017ApJ...835...77M, - YES part of data used
+@ARTICLE{2017ApJ...835...61Z, - YES part of data used
+@ARTICLE{2017ApJ...835...16D, - YES part of data used
+@ARTICLE{2017ApJ...834..185K, - YES part of data used, also MSX, Spitzer
+@ARTICLE{2017ApJ...834..176N, - YES part of data used
+@ARTICLE{2017ApJ...834..141O,   - NO just cites someone else using it 
+@ARTICLE{2017ApJ...834..137L, - YES small part of data used
+@ARTICLE{2017ApJ...834..122G, - YES part of data used, also Spitzer
+@ARTICLE{2017ApJ...834..119A, - YES part of data used
+@ARTICLE{2017ApJ...834...74S, - YES part of data used
+@ARTICLE{2017ApJ...834...71V, - YES part of data used, astrometry
+@ARTICLE{2017ApJ...834...41K, - YES part of data used, calibration
+@ARTICLE{2017ApJ...834...22D, - YES part of data used, also Herschel, Spitzer, WISE
+@ARTICLE{2017ApJ...834....7S, - YES small part of data used
+@ARTICLE{2017AN....338...61M, - YES part of data used, astrometry
+@ARTICLE{2017AN....338...49K, - YES part of data used
+@ARTICLE{2017AN....338...46G, - YES part of data used (though i can't get to article)
+@ARTICLE{2017AJ....153...46L, - YES part of data used, also WISE, Spitzer
+@ARTICLE{2017AJ....153...18B, - YES part of data used, also WISE
+@ARTICLE{2017AJ....153...16S, - YES part of data used
+@ARTICLE{2017AJ....153...14W, - YES part of data used
+@ARTICLE{2017AJ....153....5J, - YES part of data used, also WISE, Spitzer, Akari
+@ARTICLE{2017A&C....18...47M, - YES part of data used, astrometry
+@ARTICLE{2017A&C....18....1B, - YES part of data used
+@ARTICLE{2017A&A...597A..92K, - YES part of data used
+@ARTICLE{2017A&A...597A..89P, - YES small part of data used (similarly WISE) - this paper talks broadly about catalog matching
+@ARTICLE{2017A&A...597A..79P, - YES part of data used, also WISE
+@ARTICLE{2017A&A...597A..33T, - YES part of data used
+@ARTICLE{2017A&A...597A..24R,   - NO not really
+@ARTICLE{2017A&A...597A..18T, - YES part of data used
+@ARTICLE{2017A&A...597A..15D, - YES part of data used
