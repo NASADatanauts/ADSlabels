@@ -16,5 +16,3 @@ cite_1 = cite_1[notna]
 cite_1['cited'] = np.where(cite_1['note1'].str.contains("YES"), 'yes', 'no')
 
 ##fetch articles from API
-
-##establish model (word2vec for topic identification?)
