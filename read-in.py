@@ -51,7 +51,7 @@ cleandf.to_csv("cleandf.csv",sep=',')
 
 import urllib
 
-#function to grab pdfs and store locally
+#function to grab pdfs and store locally - takes a list of DOIs, returns indexes that fail
 def getthempdfs(doi_ids):
     retrieve = []
     for linenum, line in enumerate(doi_ids):
