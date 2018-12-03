@@ -62,10 +62,10 @@ def getthempdfs(doi_ids):
             if urlbegin != -1:
                 if data[urlbegin] != 34:
                     pdfurl = data[urlbegin:urlbegin + 30]
-                    urllib.request.urlretrieve(pdfurl.decode('utf8'), str(linenum) + '.pdf')
+                    urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
                 else:
                     pdfurl = data[urlbegin + 1:urlbegin +31]
-                    urllib.request.urlretrieve(pdfurl.decode('utf8'), str(linenum) + '.pdf')
+                    urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
             else: retrieve.append(linenum)
         else: continue
     return retrieve
@@ -86,9 +86,60 @@ urllib.request.urlretrieve(pdfurl.decode('utf8'),'thatwhat.pdf')
 
 #extract and read PDF
 from urllib.request import urlretrieve
-import PyPDF2
+from pdfminer.pdfinterp import PDFResourceManager
+from pdfminer.pdfinterp import PDFPageInterpreter
+from pdfminer.pdfpage import PDFPage
+from pdfminer.converter import TextConverter
+from io import StringIO
+from pdfminer.layout import LAParams
+import os
 
-urlretrieve('https://arxiv.org/pdf/1705.09063.pdf','whatwhat.pdf')
-here = PyPDF2.PdfFileReader(open('whatwhat.pdf', 'rb'))
-pg = here.getPage(0)
-texts = pg.extractText()
+urlretrieve('https://arxiv.org/pdf/1705.09063.pdf','./pdfs/whatwhat.pdf')
+
+# takes filepath, returns text of single document
+def pdf_to_text(path):
+    here = open(path, 'rb')
+    retstr = StringIO()
+    laparams = LAParams()
+
+    mgr = PDFResourceManager()
+    device = TextConverter(mgr, retstr, codec='utf-8', laparams=laparams)
+    interpret = PDFPageInterpreter(mgr, device)
+
+    for page in PDFPage.get_pages(here, check_extractable=True):
+        interpret.process_page(page)
+
+    text = retstr.getvalue()
+
+    here.close()
+    device.close()
+    retstr.close()
+
+    return text
+
+
+fulltext = pdf_to_text('whatwhat.pdf')
+
+# take open directory, save directory -- saves .txt from PDF to save directory
+def pdf_text_save(open_dir, save_dir):
+    filelist = os.listdir(open_dir)
+    for index, file in enumerate(filelist):
+        text = pdf_to_text(open_dir + '/' + file)
+        lowertext = text.lower()
+        begin = lowertext.find("introduction")
+        end = lowertext.rfind("references")
+        prune_text = lowertext[begin:end]
+
+        f = open(save_dir + '/' + str(index) + '.txt', 'w', encoding='utf-8')
+        f.write(prune_text)
+        f.close()
+
+filelist = os.listdir('./pdfs')
+for index, file in enumerate(filelist):
+    print(index, file)
+
+pdf_text_save('./pdfs','./txts')
+
+
+# Split page on column, read everything, combine, then get only INTRODUCTION through REFERENCES
+texts.find("INTRODUCTION")
