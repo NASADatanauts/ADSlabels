@@ -50,6 +50,8 @@ cleandf.to_csv("cleandf.csv",sep=',')
 # find and download arxiv PDF with DOI
 
 import urllib
+from bs4 import BeautifulSoup
+import lxml
 
 #function to grab pdfs and store locally - takes a list of DOIs, returns indexes that fail
 def getthempdfs(doi_ids):
@@ -60,47 +62,19 @@ def getthempdfs(doi_ids):
             data = urllib.request.urlopen(url).read()
             urlbegin = data.decode('utf8').find('http://arxiv.org/pdf/')  # beginning of pdf string
             if urlbegin != -1:
-                if data[urlbegin] == 102:
-                    urlend = data[urlbegin + 4:].decode('utf8').find('"')
-                    pdfurl = data[urlbegin+3:urlbegin + urlend + 4]
-                    urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
-                if data[urlbegin] == 61:
-                    urlend = data[urlbegin + 2:].decode('utf8').find('"')
-                    pdfurl = data[urlbegin + 2:urlbegin + urlend + 2]
-                    urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
-                if data[urlbegin] == 104:
-                    urlend = data[urlbegin + 1:].decode('utf8').find('"')
-                    pdfurl = data[urlbegin:urlbegin + urlend + 1]
-                    urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
-                if data[urlbegin] != 34:
-                    urlend = data[urlbegin + 1:].decode('utf8').find('"')
-                    pdfurl = data[urlbegin:urlbegin + urlend + 1]
-                    urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
+                soup = BeautifulSoup(data, 'html.parser')
+                tags = soup.find_all('link')
+                for tag in tags:
+                    if tag.get('href').find('pdf'):
+                        urllib.request.urlretrieve(pdfurl.decode('utf8'), './pdfs/' + str(linenum) + '.pdf')
+                    else: retrieve.append("NA")
             else: retrieve.append(linenum)
         else: continue
     return retrieve
 
 getthempdfs(bits)
 print(getthempdfs(cleandf["doi"]))
-getthempdfs(cleandf['doi'][40:45])
-
-getthempdfs(cleandf['doi'][46:48])
-getthempdfs(cleandf['doi'][47:49])
-getthempdfs(cleandf['doi'][48:50])
-
-getthempdfs(cleandf['doi'][49:51]) #48, 49 is the problem
-
-url = 'http://export.arxiv.org/api/query?search_query=all:' + cleandf['doi'][48] + '&start=0&max_results=1'
-data = urllib.request.urlopen(url).read()
-urlbegin = data.decode('utf8').find('http://arxiv.org/pdf/')
-urlend = data[urlbegin + 4:].decode('utf8').find('"')
-pdfurl = data[urlbegin + 3:urlbegin + urlend + 4]
-
-url = 'http://export.arxiv.org/api/query?search_query=all:' + cleandf['doi'][49] + '&start=0&max_results=1'
-data = urllib.request.urlopen(url).read()
-urlbegin = data.decode('utf8').find('http://arxiv.org/pdf/')
-urlend = data[urlbegin + 1:].decode('utf8').find('"')
-pdfurl = data[urlbegin:urlbegin + urlend + 1]
+getthempdfs(cleandf['doi'][40:50])
 
 
 #extract and read PDF
