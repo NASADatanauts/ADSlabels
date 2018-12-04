@@ -16,6 +16,8 @@ notna = cite_1['note1'].str.contains("YES|NO")
 cite_1 = cite_1[notna]
 ##create col of only yes/no
 cite_1['cited'] = np.where(cite_1['note1'].str.contains("YES"), 'yes', 'no')
+# create col of Skrutskie yes/no
+cite_1['skrutskie'] = 'yes'
 
 ##isolate article id to bibcode, reset index to prevent key errors
 cite_1['bibcode'] = cite_1['article'].str.slice(start=9)
