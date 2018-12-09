@@ -55,9 +55,9 @@ def pdf_to_text(path):
     return text
 
 
-# takes open directory, save directory -- saves .txt from PDF in open directory to save directory
-def pdf_text_save(open_dir, save_dir):
-    filelist = os.listdir(open_dir)
+# takes open directory, start/stop indices, save directory -- saves .txt from PDF in open directory to save directory
+def pdf_text_save(open_dir, start, stop, save_dir):
+    filelist = os.listdir(open_dir)[start:stop]
     for file in filelist:
         text = pdf_to_text(open_dir + '/' + file)
         lowertext = text.lower()

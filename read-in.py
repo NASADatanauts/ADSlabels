@@ -188,16 +188,24 @@ cleandf4.to_csv("cleandf4.csv",sep=',')
 
 
 # combine dataframes
-
+frames = [cleandf, cleandf2, cleandf3, cleandf4]
+fulldata = pd.concat(frames)
+fulldata = fulldata.reset_index(drop=True)
 
 # find and download arxiv PDF with DOI
-print(getthempdfs(cleandf["doi"]))
-#returns 115 out of 312 in original batch
+print(getthempdfs(fulldata["doi"]))
+#returns 115 out of 312 in first batch
+#returns 451 out of 1436 in full batch
 
-
-urlretrieve('https://arxiv.org/pdf/1705.09063.pdf','./pdfs/whatwhat.pdf')
-
-fulltext = pdf_to_text('whatwhat.pdf')
 
 # take pdfs from first directory, convert to text, save in second directory
-pdf_text_save('./pdfs','./txts')
+# chunked individually to check progress and prevent stoppage
+pdf_text_save('./pdfs', 0, 50, './txts')
+pdf_text_save('./pdfs', 50, 100, './txts')
+pdf_text_save('./pdfs', 100, 150, './txts')
+pdf_text_save('./pdfs', 150, 200, './txts')
+pdf_text_save('./pdfs', 200, 250, './txts')
+pdf_text_save('./pdfs', 250, 300, './txts')
+pdf_text_save('./pdfs', 300, 350, './txts')
+pdf_text_save('./pdfs', 350, 400, './txts')
+pdf_text_save('./pdfs', 400, 451, './txts')
