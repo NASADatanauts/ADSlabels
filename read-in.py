@@ -199,6 +199,7 @@ print(getthempdfs(fulldata["doi"]))
 
 
 # take pdfs from first directory, convert to text, save in second directory
+pdf_text_save('./pdfs', 0, len(os.listdir('./pdfs')) + 1, './txts')
 # chunked individually to check progress and prevent stoppage
 pdf_text_save('./pdfs', 0, 50, './txts')
 pdf_text_save('./pdfs', 50, 100, './txts')
@@ -208,4 +209,13 @@ pdf_text_save('./pdfs', 200, 250, './txts')
 pdf_text_save('./pdfs', 250, 300, './txts')
 pdf_text_save('./pdfs', 300, 350, './txts')
 pdf_text_save('./pdfs', 350, 400, './txts')
-pdf_text_save('./pdfs', 400, 451, './txts')
+pdf_text_save('./pdfs', 400, 452, './txts')
+
+#skip index 135, 178, 186, 205, 217, 240, 263, 289, 391, 392 - took too long to convert
+#later successful: 178, 186, 205, 240, 263, 289, 391, 392
+# 217 exited without conversion via pdf_text_save -- saved individually with pdf_to_text
+
+#filelist = os.listdir('./pdfs')
+#filelist[217:218]
+
+#pdf_text_save('./pdfs', 0, 218, './txts')
