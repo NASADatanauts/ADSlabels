@@ -142,7 +142,7 @@ cleandf3.to_csv("cleandf3.csv",sep=',')
 
 
 ## 2017-06to12-NO
-##coverted txt to csv, read in
+##converted txt to csv, read in
 cite_4 = pd.read_csv("./data/2017-06to12-NOciteSkrutskie-NOTES.csv", skiprows=11, sep=',', header=None)
 cite_4.columns = ["article", "note1", "note2", "note3"]
 cite_4 = cite_4.iloc[:, 0:2]
