@@ -1,5 +1,6 @@
 import urllib
 from bs4 import BeautifulSoup
+import pandas as pd
 
 #function to grab pdfs and store locally - takes a list of DOIs, returns line numbers if not on arxiv and NA when no PDF found
 def getthempdfs(doi_ids):
