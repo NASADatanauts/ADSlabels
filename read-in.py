@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import requests
 import json
+import os
 
 # text files partially needed to be cleaned in Excel to obtain bibcodes -- inconsistent labelling
 # Excel also needed to properly format the text file to be read in as a CSV
@@ -219,3 +220,16 @@ pdf_text_save('./pdfs', 400, 452, './txts')
 #filelist[217:218]
 
 #pdf_text_save('./pdfs', 0, 218, './txts')
+
+#join text to dataframe
+for index, row in fulldata.iterrows():
+    if str(index) + '.pdf.txt' in os.listdir('./txts'):
+        f = open('./txts/' + str(index) + '.pdf.txt', encoding = 'utf-8')
+        fulldata[index, 'text'] = f.read()
+
+for index, row in dfcopy.iterrows():
+    if str(index) + '.pdf.txt' in os.listdir('./txts'):
+        f = open('./txts/' + str(index) + '.pdf.txt', encoding = 'utf-8')
+        fread = f.read()
+        fread = fread.replace('\n', ' ')
+        dfcopy.loc[index,'text'] = fread
