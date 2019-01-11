@@ -221,15 +221,13 @@ pdf_text_save('./pdfs', 400, 452, './txts')
 
 #pdf_text_save('./pdfs', 0, 218, './txts')
 
-#join text to dataframe
+#join text to dataframe, export
 for index, row in fulldata.iterrows():
-    if str(index) + '.pdf.txt' in os.listdir('./txts'):
-        f = open('./txts/' + str(index) + '.pdf.txt', encoding = 'utf-8')
-        fulldata[index, 'text'] = f.read()
-
-for index, row in dfcopy.iterrows():
     if str(index) + '.pdf.txt' in os.listdir('./txts'):
         f = open('./txts/' + str(index) + '.pdf.txt', encoding = 'utf-8')
         fread = f.read()
         fread = fread.replace('\n', ' ')
-        dfcopy.loc[index,'text'] = fread
+        fulldata.loc[index,'text'] = fread
+
+
+fulldata.to_csv('./fulldata.csv', sep=',')
