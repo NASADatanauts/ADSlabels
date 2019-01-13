@@ -37,6 +37,8 @@ x = pd.concat([encodeskrut,reduced.loc[:,'text']], axis = 1, sort = False)
 simplex = x.loc[:,'text']
 y = pd.get_dummies(reduced.loc[:,'2mass'], drop_first=True, prefix = '2mass')
 
+y = np.ravel(y)
+
 simplex_train, simplex_test, y_train, y_test = train_test_split(simplex, y, test_size=0.3, random_state=27)
 y_train = np.ravel(y_train)
 
@@ -90,7 +92,35 @@ parameters = {'vect__ngram_range': [(1,1),(1,2)],
               'clf__alpha': (0.001, 0.01, 0.1)}
 
 grid_nb = GridSearchCV(nb_pipe, parameters, cv=3, n_jobs=-1) #-1 n_jobs for multicore
-grid_nb = grid_nb.fit(simplex_train, y_train)
+grid_nb = grid_nb.fit(simplex, y)
 
-grid_nb.best_score_  #81.5%
-grid_nb.best_params_  #best ngrams is 1 -- stemming may help
+grid_nb.best_score_  # 81.5%, 81.1% with full set
+grid_nb.best_params_  # best ngrams is 1 -- stemming may help
+
+#with stemming
+
+from nltk.stem import SnowballStemmer
+stemmer = SnowballStemmer("english", ignore_stopwords=True)
+
+class StemmedCountVectorizer(CountVectorizer):
+    def build_analyzer(self):
+        analyzer = super(StemmedCountVectorizer, self).build_analyzer()
+        return lambda doc: ([stemmer.stem(w) for w in analyzer(doc)])
+
+stemmed_count_vect = StemmedCountVectorizer(stop_words='english')
+
+stem_pipe = Pipeline([('vect', stemmed_count_vect),
+                      ('tfidf', TfidfTransformer()),
+                      ('clf', MultinomialNB(fit_prior=False))])
+
+stemmed_nb = stem_pipe.fit(simplex_train, y_train)
+
+pred_stemmed = stemmed_nb.predict(simplex_test)
+
+accuracy_score(y_test, pred_stemmed) #still only 75%
+
+grid_stem_nb = GridSearchCV(stem_pipe, parameters, cv=3, n_jobs=-1) #-1 n_jobs for multicore
+grid_stem_nb = grid_nb.fit(simplex, y)
+
+grid_stem_nb.best_score_ #81.5% again, 81.1% with full set
+grid_stem_nb.best_params_
