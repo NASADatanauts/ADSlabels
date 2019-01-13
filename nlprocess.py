@@ -46,14 +46,51 @@ tfidf = TfidfTransformer()
 simplex_train_count = count_vect.fit_transform(simplex_train)
 simplex_train_tfidf = tfidf.fit_transform(simplex_train_count)
 
-simplex_test_count = count_vect.transform(simplex_test)
+simplex_test_count = count_vect.transform(simplex_test) #use transform for all test inputs
 simplex_test_tfidf = tfidf.transform(simplex_test_count)
 
 # initial model with naive Bayes
 nbmodel = MultinomialNB().fit(simplex_train_tfidf, y_train)
-y_pred = nbmodel.predict(simplex_test_tfidf)
+y_pred_nb = nbmodel.predict(simplex_test_tfidf)
 
 #scoring
-accuracy_score(y_test, y_pred)
+accuracy_score(y_test, y_pred_nb)
 
 
+#logistic regression for baseline
+from sklearn.linear_model import LogisticRegression
+
+logreg = LogisticRegression().fit(simplex_train_tfidf, y_train)
+y_pred_log = logreg.predict(simplex_test_tfidf)
+
+accuracy_score(y_test, y_pred_log) #same as Naive Bayes
+
+
+#support vector machine
+
+from sklearn.linear_model import SGDClassifier
+svmmodel = SGDClassifier(loss='hinge', penalty="l2", alpha=1e-3, max_iter=5, random_state=27)
+
+_ = svmmodel.fit(simplex_train_tfidf, y_train)
+y_pred_svm = svmmodel.predict(simplex_test_tfidf)
+
+accuracy_score(y_test, y_pred_svm) #same as Naive Bayes
+
+
+#create pipeline
+from sklearn.pipeline import Pipeline
+nb_pipe = Pipeline([('vect', CountVectorizer()),
+                    ('tfidf', TfidfTransformer()),
+                    ('clf', MultinomialNB())])
+
+#next - grid search for ngram range, use idf, alpha
+from sklearn.model_selection import GridSearchCV
+parameters = {'vect__ngram_range': [(1,1),(1,2)],
+              'tfidf__use_idf': (True, False),
+              'clf__alpha': (0.001, 0.01, 0.1)}
+
+grid_nb = GridSearchCV(nb_pipe, parameters, cv=3, n_jobs=-1) #-1 n_jobs for multicore
+grid_nb = grid_nb.fit(simplex_train, y_train)
+
+grid_nb.best_score_  #81.5%
+grid_nb.best_params_  #best ngrams is 1 -- stemming may help
