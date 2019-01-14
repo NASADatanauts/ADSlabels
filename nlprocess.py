@@ -1,23 +1,9 @@
 # initial NLP preprocessing, experimentation for final model
-from nltk.tokenize import regexp_tokenize
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import sent_tokenize
-from nltk.stem import SnowballStemmer
-from nltk.stem. porter import *
 import numpy as np
+import pandas as pd
 
-pattern = r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?"
-
-f = open('./txts/' + '0' + '.pdf.txt', encoding = 'utf-8')
-test = f.read()
-
-testsent = sent_tokenize(test)
-wnlemma = WordNetLemmatizer()
-testsplit_sentences = []
-for sentence in testsent:
-    tokens = regexp_tokenize(sentence,pattern)
-    tokens = [wnlemma.lemmatize(w) for w in tokens]
-    testsplit_sentences.append(tokens)
+# import data
+fulldata = pd.read_csv('./fulldata.csv', index_col=0)
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -173,9 +159,26 @@ parameters = {'clf__alpha': (0.001, 0.01, 0.1)}
 grid_nb_skrut = GridSearchCV(nb_skrut, parameters, cv=3, n_jobs=-1)
 grid_nb_skrut = grid_nb_skrut.fit(x_skrut_tfidf, y)
 
-grid_nb_skrut.best_score_ # 79.2% -- model is slightly worse.
+grid_nb_skrut.best_score_ # 79.2% -- model is slightly worse than without skrut.
 grid_nb_skrut.best_params_
 
 # best combination (81.1%): simple nb, no skrut, alpha = 0.001, use_idf = True, ngrams = (1,1)
 
+# look at most explanatory words (class 1 - yes, class 0 - no for 2mass)
 
+vect = CountVectorizer(ngram_range=(1,1))
+vect_fit = vect.fit_transform(simplex)
+tfidf = TfidfTransformer(use_idf=True).fit_transform(vect_fit)
+clf = MultinomialNB(alpha=0.001).fit(tfidf, y)
+
+nb_coefs = clf.coef_
+nb_coefs = [item for sublist in nb_coefs.tolist() for item in sublist]
+words = vect.vocabulary_
+
+grouped = list(zip(words.keys(),nb_coefs))
+sort_group = sorted(grouped, key=lambda x: x[1], reverse=True)
+
+top50_words = pd.DataFrame(sort_group[:50], columns=['word','coefficient'])
+bottom50_words = pd.DataFrame(sort_group[-50:], columns=['word','coefficient'])
+
+highest100_words = pd.concat([top50_words, bottom50_words], axis=0)
