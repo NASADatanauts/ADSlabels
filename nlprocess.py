@@ -89,13 +89,13 @@ nb_pipe = Pipeline([('vect', CountVectorizer()),
 from sklearn.model_selection import GridSearchCV
 parameters = {'vect__ngram_range': [(1,1),(1,2)],
               'tfidf__use_idf': (True, False),
-              'clf__alpha': (0.001, 0.01, 0.1)}
+              'clf__alpha': (0.0001, 0.001, 0.01, 0.1)}
 
 grid_nb = GridSearchCV(nb_pipe, parameters, cv=3, n_jobs=-1) #-1 n_jobs for multicore
 grid_nb = grid_nb.fit(simplex, y)
 
 grid_nb.best_score_  # 81.5%, 81.1% with full set
-grid_nb.best_params_  # best ngrams is 1 -- stemming may help
+grid_nb.best_params_  # best ngrams is 1
 
 #with stemming
 
@@ -113,14 +113,69 @@ stem_pipe = Pipeline([('vect', stemmed_count_vect),
                       ('tfidf', TfidfTransformer()),
                       ('clf', MultinomialNB(fit_prior=False))])
 
-stemmed_nb = stem_pipe.fit(simplex_train, y_train)
+stem_pipe = stem_pipe.fit(simplex_train, y_train)
 
-pred_stemmed = stemmed_nb.predict(simplex_test)
+pred_stemmed = stem_pipe.predict(simplex_test)
 
 accuracy_score(y_test, pred_stemmed) #still only 75%
 
-grid_stem_nb = GridSearchCV(stem_pipe, parameters, cv=3, n_jobs=-1) #-1 n_jobs for multicore
-grid_stem_nb = grid_nb.fit(simplex, y)
+grid_stem_nb = GridSearchCV(stem_pipe, parameters, cv=3, n_jobs=-1) # -1 n_jobs for multicore
+grid_stem_nb = grid_stem_nb.fit(simplex_train, y_train)
 
-grid_stem_nb.best_score_ #81.5% again, 81.1% with full set
+grid_stem_nb.best_score_ # 81.5% again, 81.1% with full set -- stemming does not seem to affect outcome
 grid_stem_nb.best_params_
+
+
+#support vector machine gridsearch
+
+svm_pipe = Pipeline([('vect', CountVectorizer()),
+                    ('tfidf', TfidfTransformer()),
+                    ('clf', SGDClassifier(loss='hinge', penalty="l2", max_iter=5, random_state=27))])
+
+parameters = {'vect__ngram_range': [(1,1),(1,2)],
+              'tfidf__use_idf': (True, False),
+              'clf__alpha': (0.0001, 0.001, 0.01)}
+
+grid_svm = GridSearchCV(svm_pipe, parameters, cv=3, n_jobs=-1)
+grid_svm = grid_svm.fit(simplex, y)
+
+grid_svm.best_score_ # 78.9%
+grid_svm.best_params_ # ngrams changed to 2, alpha still 0.001, use_idf may be changed to True for all
+
+svm_pipe = Pipeline([('vect', CountVectorizer(ngram_range=(1,2))),
+                    ('tfidf', TfidfTransformer(use_idf=True)),
+                    ('clf', SGDClassifier(loss='hinge', penalty="l2", max_iter=5, random_state=27, alpha=0.001))])
+
+parameters = {'clf__eta0': (0.0001, 0.001),
+              'clf__power_t': (0.15, 0.2)}
+
+grid_svm = GridSearchCV(svm_pipe, parameters, cv=3, n_jobs=-1)
+grid_svm = grid_svm.fit(simplex, y)
+
+grid_svm.best_score_ # no improvement with adjusted values
+grid_svm.best_params_
+
+
+# add skrut back in, use optimized Naive Bayes
+
+count_vect = CountVectorizer(ngram_range=(1,1))
+tfidf = TfidfTransformer(use_idf=True)
+simplex_count = count_vect.fit_transform(simplex)
+simplex_tfidf = tfidf.fit_transform(simplex_count)
+
+from scipy.sparse import hstack
+x_skrut_tfidf = hstack((simplex_tfidf, np.array(x['skrut_yes'])[:,None]))
+
+nb_skrut = Pipeline([('clf', MultinomialNB())])
+
+parameters = {'clf__alpha': (0.001, 0.01, 0.1)}
+
+grid_nb_skrut = GridSearchCV(nb_skrut, parameters, cv=3, n_jobs=-1)
+grid_nb_skrut = grid_nb_skrut.fit(x_skrut_tfidf, y)
+
+grid_nb_skrut.best_score_ # 79.2% -- model is slightly worse.
+grid_nb_skrut.best_params_
+
+# best combination (81.1%): simple nb, no skrut, alpha = 0.001, use_idf = True, ngrams = (1,1)
+
+
