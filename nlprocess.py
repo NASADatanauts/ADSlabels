@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 # import data
-fulldata = pd.read_csv('./fulldata.csv', index_col=0)
+fulldata = pd.read_csv('./data/fulldata.csv', index_col=0)
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -170,6 +170,38 @@ vect = CountVectorizer(ngram_range=(1,1))
 vect_fit = vect.fit_transform(simplex)
 tfidf = TfidfTransformer(use_idf=True).fit_transform(vect_fit)
 clf = MultinomialNB(alpha=0.001).fit(tfidf, y)
+
+nb_coefs = clf.coef_
+nb_coefs = [item for sublist in nb_coefs.tolist() for item in sublist]
+words = vect.vocabulary_
+
+grouped = list(zip(words.keys(),nb_coefs))
+sort_group = sorted(grouped, key=lambda x: x[1], reverse=True)
+
+top50_words = pd.DataFrame(sort_group[:50], columns=['word','coefficient'])
+bottom50_words = pd.DataFrame(sort_group[-50:], columns=['word','coefficient'])
+
+highest100_words = pd.concat([top50_words, bottom50_words], axis=0)
+
+# notes for word coefficients
+# om2pha is a program for clarifying celestial position for spectral fitting (detection/classification)
+# kauffmann (co-)authored popular papers using 2MASS or relating to it
+# numbers are likely stellar objects
+
+# adding custom token to CountVectorizer, rerun GridSearchCV
+
+vect = CountVectorizer(ngram_range=(1,1), token_pattern=r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?")
+vect_fit = vect.fit_transform(simplex_train)
+tfidf = TfidfTransformer(use_idf=True)
+tfidf_fit = tfidf.fit_transform(vect_fit)
+clf = MultinomialNB(alpha=0.001).fit(tfidf_fit, y_train)
+
+simplex_test_count = vect.transform(simplex_test) #use transform for all test inputs
+simplex_test_tfidf = tfidf.transform(simplex_test_count)
+
+pred_regex = clf.predict(simplex_test_tfidf)
+
+accuracy_score(y_test, pred_regex) # 78.4% -- reduced from when using default tokenizer
 
 nb_coefs = clf.coef_
 nb_coefs = [item for sublist in nb_coefs.tolist() for item in sublist]
