@@ -10,7 +10,7 @@ import os
 
 ## 2017-01to06
 ##coverted txt to csv, read in
-cite_1 = pd.read_csv("./data/2017-01to06-citeSkrutskie-NOTES.csv", skiprows=14, sep=',', header=None)
+cite_1 = pd.read_csv("./data/raw/2017-01to06-citeSkrutskie-NOTES.csv", skiprows=14, sep=',', header=None)
 cite_1.columns = ["article", "note1", "note2", "note3", "note4", "note5"]
 cite_1 = cite_1.iloc[:, 0:2]
 
@@ -54,7 +54,7 @@ cleandf.to_csv("cleandf.csv",sep=',')
 
 ## 2017-01to06-NO
 ##coverted txt to csv, read in
-cite_2 = pd.read_csv("./data/2017-01to06-NOciteSkrutskie-NOTES.csv", skiprows=23, sep=',', header=None)
+cite_2 = pd.read_csv("./data/raw/2017-01to06-NOciteSkrutskie-NOTES.csv", skiprows=23, sep=',', header=None)
 cite_2.columns = ["article", "note1", "note2", "note3", "note4"]
 cite_2 = cite_2.iloc[:, 0:2]
 
@@ -99,7 +99,7 @@ cleandf2.to_csv("cleandf2.csv",sep=',')
 
 ## 2017-06to12
 ##coverted txt to csv, read in
-cite_3 = pd.read_csv("./data/2017-06to12-citeSkrutskie-NOTES.csv", skiprows=10, sep=',', header=None)
+cite_3 = pd.read_csv("./data/raw/2017-06to12-citeSkrutskie-NOTES.csv", skiprows=10, sep=',', header=None)
 cite_3.columns = ["article", "note1", "note2", "note3"]
 cite_3 = cite_3.iloc[:, 0:2]
 
@@ -144,7 +144,7 @@ cleandf3.to_csv("cleandf3.csv",sep=',')
 
 ## 2017-06to12-NO
 ##converted txt to csv, read in
-cite_4 = pd.read_csv("./data/2017-06to12-NOciteSkrutskie-NOTES.csv", skiprows=11, sep=',', header=None)
+cite_4 = pd.read_csv("./data/raw/2017-06to12-NOciteSkrutskie-NOTES.csv", skiprows=11, sep=',', header=None)
 cite_4.columns = ["article", "note1", "note2", "note3"]
 cite_4 = cite_4.iloc[:, 0:2]
 
@@ -230,4 +230,4 @@ for index, row in fulldata.iterrows():
         fulldata.loc[index,'text'] = fread
 
 
-fulldata.to_csv('./fulldata.csv', sep=',')
+fulldata.to_csv('./data/fulldata.csv', sep=',')
