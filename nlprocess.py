@@ -15,12 +15,13 @@ from sklearn.metrics import accuracy_score
 #prepare dataframe for sklearn
 noblank = fulldata.replace('', np.nan, regex=True)
 reduced = noblank[~pd.isnull(noblank.text)]
-reduced = reduced.loc[:,('2mass','skrutskie','text')]
+reduced = reduced.loc[:,('2mass','text')]
 
-encodeskrut = pd.get_dummies(reduced.loc[:, 'skrutskie'], drop_first=True, prefix = 'skrut')
+# encodeskrut = pd.get_dummies(reduced.loc[:, 'skrutskie'], drop_first=True, prefix = 'skrut')
 
-x = pd.concat([encodeskrut,reduced.loc[:,'text']], axis = 1, sort = False)
-simplex = x.loc[:,'text']
+# x = pd.concat([encodeskrut,reduced.loc[:,'text']], axis = 1, sort = False)
+# simplex = x.loc[:,'text']
+simplex = reduced[['text']]
 y = pd.get_dummies(reduced.loc[:,'2mass'], drop_first=True, prefix = '2mass')
 
 y = np.ravel(y)
